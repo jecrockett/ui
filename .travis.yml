@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: hsWBrKhYXz7v4+HCOll29WicqUGzzDrEqb/j5xWqZz+OpY94VyaTGHG4LqU5ZCard1RHKA6o3UUEAhdB+OclxO4wg5OCir+6Cv5lFYaZLhlxboMJ8yJfL2gY6Bq7c6E4oAz1qkeYbEOruN/8NOo6LP9VhavZ61yuQ5cjQrg1Kkst6++dk9netbJDoRJxlcGuAxWi9SazNDHKYhqkSbk+IYFUZP5GXW6LsYSOQLW5B7iOeY/mqdwW2Gftxf0F5R1BktuBOZSQQdj8P5Ht+w8cYgaF/fU7fPtuwSmApboCtgc64EgHlUSaJapacRmq/dUtnrjuDyjTY5U22P9PNDX74ayRGw7g/w0NHO6FuA6MBu241eMPBFoEkgla6YFhNYRH4pTSxagedO9a6F80zLkQ7AcqpeK8qEprY7+F9ydSpdxIZDw8dkE1cBljdmlxV1G4Z29OcGPEfeDvnfAbZUwjwKOHggy0ysDWYlSml0e4RRakfTa2Q7U4KNdmYH9oVEOdgpbejUlh69gjfAJRJ5dQFZw6WrkJDyeoxJLSnwTalsBrFZL0oy6P+D/xNhVg6Qqhk7BZK1GuU+fSrxCT+YjlDJ6VnVLaXOtxWMqit+6RlYIzoo7C548CnpFOPNua5WeGMvNrvXe0pFlB36RPVSXk9QO4DPpEKrLv7hIQ9nmEYiY=
+  app: lit-spire-32705
+  on:
+    repo: jecrockett/ui
